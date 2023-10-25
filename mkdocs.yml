@@ -1,8 +1,6 @@
-site_name: Shuaike Shen's Site  #网站名称
+site_name: Shuaike Shen's Notebook  #网站名称
 site_description: My personal website  #站点描述
-# site_url: https://example.com  #站点网址 URL，根可位于域名的子目录中
 site_author: Shuaie Shen   #作者
-# copyright: Copyright &copy; 2016-2022 佚名 <a href="https://beian.miit.gov.cn/" target="_blank">您的备案号</a> #版权声明与网站备案号
 
 theme:  #主题
   name: material  #名称
@@ -126,3 +124,47 @@ extra:
 #  analytics: #设置站点分析
 #    provider: google
 #    property: G-XXXXXXXXXX
+
+nav:
+  - Introduction: index.md
+  # - Lecture Notes:
+  #   - Operating System:
+  #     - Chapter 1 Introduction: notes/os/notes-os-Chapter-1.md
+  #     - Chapter 2 Operating-System Structures: notes/os/notes-os-Chapter-2.md
+  #     - Chapter 3 Processes: notes/os/notes-os-Chapter-3.md
+  #   - Computer Architecture:
+  #     - Lecture 1: 
+  #     - Lecture 2: 
+  #   - Computer Network: 
+  #     - Lecture 1: 
+  #     - Lecture 2: 
+  # - Paper reading:
+  #   - Computer Vision:
+  #     - AlexNet: paper/cv/paper-reading-alexnet.md
+  #     - CLIP: docs/paper/cv/paper-reading-clip.md
+  #     - MAE: docs/paper/cv/paper-reading-mae.md
+  #     - ResNet: docs/paper/cv/paper-reading-resnet.md
+  #     - ViT: docs/paper/cv/paper-reading-vit.md
+  #   - 3D Vision:
+  #     - NeRF: docs/paper/cv/paper-reading-nerf.md
+  #   - AI+X:
+  #   - Natural Language Processing: 
+  #     - BERT: docs/paper/cv/paper-reading-bert.md
+  #     - Transformer: docs/paper/cv/paper-reading-transformer.md
+  #   - Graph:
+  #     - GNN: docs/paper/cv/paper-reading-gnn.md
+  #   - Generative Model: 
+  #     - ControlNet: docs/paper/cv/paper-reading-controlnet.md
+  #     - DallE 2: docs/paper/cv/paper-reading-dalle2.md
+  #     - DDPM: docs/paper/cv/paper-reading-ddpm_ddim.md
+  #     - GAN: docs/paper/cv/paper-reading-gan.md
+  #     - Stable Diffusion: docs/paper/cv/paper-reading-stable_diffusion.md
+  # - Tools:
+  #   - cmake: tools/cmake/tools-cmake.md
+  #   - conda: tools/cmake/tools-conda.md
+  #   - docker: tools/cmake/tools-docker.md
+  #   - git: tools/cmake/tools-git.md
+  #   - shell: tools/cmake/tools-shell-linux.md
+  # - Programming:
+  #   - python: docs/program/python/progamming-python.md
+  #   - java: docs/program/python/progamming-java.md

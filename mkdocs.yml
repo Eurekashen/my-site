@@ -1,0 +1,128 @@
+site_name: Shuaike Shen's Site  #网站名称
+site_description: My personal website  #站点描述
+# site_url: https://example.com  #站点网址 URL，根可位于域名的子目录中
+site_author: Shuaie Shen   #作者
+# copyright: Copyright &copy; 2016-2022 佚名 <a href="https://beian.miit.gov.cn/" target="_blank">您的备案号</a> #版权声明与网站备案号
+
+theme:  #主题
+  name: material  #名称
+  language: zh    #语言，可设置多套切换
+#  direction: ltr  #默认ltr从左到右，rtl则从右到左
+#  logo: assets/logo.png  #logo图片
+  icon:
+    logo: material/library  #默认logo图标
+#  favicon: images/favicon.png  #网站图标，图像必须位于docs文件夹中
+  features:  #导航
+    - navigation.instant  #即时加载
+    - navigation.tracking  #锚点跟踪
+    - navigation.tabs  #导航选项卡
+    - navigation.tabs.sticky  #粘性导航选项卡
+    - navigation.sections  #次级目录在侧边栏中呈现为组，与tabs同存则有2级导航
+#    - navigation.expand  #左侧边栏全展开，取消则折叠其他只展开当选
+    - navigation.indexes  #次级索引页，直接将文档附加到章节，提供概览页面，在相应文件夹中创建index.md添加到导航nav开头。不兼容toc.integrate。
+    - toc.follow   #锚跟随，文章小标题目录侧边栏自动滚动，以便活动锚点始终可见（付费功能）
+#    - toc.integrate  #导航集成，文章小标题目录是左侧边栏的一部分
+    - navigation.top  #返回顶端
+    - search.suggest  #搜索建议，省略回车
+    - search.highlight  #搜索词高亮突出显示
+    - search.share   #搜索共享
+    - header.autohide  #标题自动隐藏
+    - announce.dismiss  #标记为已读（付费功能）
+  palette:     #切换昼夜模式的颜色，审美差就用默认，专业点就自定义
+    - media: "(prefers-color-scheme: light)" 
+      scheme: default  #配色方案：浅色模式
+      primary: indigo  #原色，默认蓝，用于标题、侧边栏、文本链接和其他几个组件
+      accent: indigo  #强调色，默认蓝，可以交互的元素如悬停链接、按钮和滚动条
+      toggle:
+        icon: material/weather-sunny #图标，太阳
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"  
+      scheme: slate  #配色方案：深色模式
+      toggle:
+        icon: material/weather-night  #图标，月亮
+        name: Switch to light mode
+  font:  #字体，false 则阻止从Google加载字体
+  # 内置隐私插件自动下载和自托管 Web 字体文件，无需阻止。其他字体使用附加样式表 extra.css 。
+    text: Roboto  #常规字体，默认Roboto，正文、标题等，300、400、400i和700
+    code: Roboto Mono  #等宽字体，默认Roboto Mono，代码块，400
+
+markdown_extensions:  #推荐配置Markdown基本语法及其扩展
+  - abbr #缩写或名词
+  - pymdownx.snippets  #片段，将任意文件或部分内容嵌入到文档中  
+  - admonition  #警告或标注
+  - pymdownx.details  #细节折叠
+  - pymdownx.superfences  #超级围栏
+  - attr_list   #属性列表（按钮-颜色图标）
+  - def_list   #定义列表
+  - footnotes  #行内脚注
+  - meta   #元数据
+  - md_in_html  #HTML 中的 Markdown
+  - toc:  #目录
+     toc_depth: 6 #目录深度，默认6，0则隐藏
+     title: On this page  #默认值，自动获取
+     permalink: true   #每个标题的末尾添加段落符号锚链接，默认false
+     permalink: ⚓︎  #每个标题的末尾添加自定义符号锚链接
+     permalink_title: Anchor link to this section for reference #在悬停时显示并由屏幕阅读器阅读的锚链接的标题
+  - tables #表格（未推荐）
+  - pymdownx.arithmatex:  #数学公式
+      generic: true  
+  - pymdownx.betterem:   #粗体斜体
+      smart_enable: all
+  - pymdownx.caret  #插入角标符号(`^`)
+  - pymdownx.mark  #双等号(`==`)
+  - pymdownx.tilde  #波浪号(`~`)
+  - pymdownx.critic:  #评论家(突出显示建议更改)，未推荐
+#      mode: reject #应如何解析标记，默认view查看更改，accept是接受更改，reject是拒绝更改
+  - pymdownx.keys   #键盘键和组合  
+  - pymdownx.emoji:  #表情符号
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+#      options: #默认无
+#        custom_icons: #允许列出要在 Markdown 中使用的附加图标集的文件夹
+#          - overrides/.icons
+  - pymdownx.highlight  #代码高亮，对代码块（SuperFences）和行内代码块（InlineHilite）的语法突出显示
+  - pymdownx.inlinehilite  #行内高亮
+  - pymdownx.smartsymbols  #智能符号
+  - pymdownx.tabbed:  #内容选项卡
+      alternate_style: true  #启用内容选项卡替代样式，必须开启
+  - pymdownx.tasklist:  #任务列表
+      custom_checkbox: true   #切换复选框的呈现样式，将原生复选框样式替换为漂亮的图标
+#      clickable_checkbox: true  #切换复选框是否可点击，默认false，不建议开
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+repo_url: https://github.com/Eurekashen/my-site  #存储库URL
+
+plugins:  #插件
+  - tags
+  - search: #搜索
+      separator: '[\s\-\.]' #分隔符，空格、减号、点
+  - git-revision-date: #每页底部显示文档最后更新日期，安装 pip install mkdocs-git-revision-date-plugin
+  - git-revision-date-localized:  #每个页面底部添加本地化更新和创建日期，安装pip install mkdocs-git-revision-date-localized-plugin
+     type: date  #日期格式，有效值为date、datetime、iso_date、iso_datetimetimeago
+     fallback_to_build_date: true  #默认false，启用则回退到mkdocs build执行的时间
+     enable_creation_date: true  #最后更新日期旁边显示与页面关联的文件的创建日期
+
+extra_javascript:
+  - javascripts/baidu-tongji.js  #百度统计
+  - javascripts/mathjax.js  #数学公式的JS
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra:
+#  version: #版本控制
+#    provider: mike
+#  homepage: https://example.com  #通常logo链接到主页，这里可修改
+  social:  #页脚
+    - icon: fontawesome/brands/twitter   #社交链接
+      link: https://twitter.com/squidfunk
+      name: squidfunk on Twitter  #一般自动提取
+    - icon: fontawesome/solid/paper-plane  #电子邮件
+      link: mailto:admin@yiruru.com
+#  generator: false  #删除通知“Made with Material for MkDocs”，一般不必
+#  analytics: #设置站点分析
+#    provider: google
+#    property: G-XXXXXXXXXX

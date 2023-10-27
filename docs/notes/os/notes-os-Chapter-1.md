@@ -8,7 +8,7 @@ categories:
 - Operating System
 ---
 
-# What is an Operating System?
+## What is an Operating System?
 
 > A program that acts as an intermediary between a user of a computer and the computer hardware.
 
@@ -18,13 +18,13 @@ categories:
   * 执行用户的程序，让解决问题更加的简单、让计算机系统更加的易用。
   * 调度系统的硬件，让硬件高效的运行——在完成相同任务的前提下，占用的资源越少越好；
 
-## Computer System Structure
+### Computer System Structure
 
 ![](https://z1.ax1x.com/2023/10/02/pPL643Q.png)
 
 事实上我们平时使用的“OS”不是真正的那个“A program”，而是 运行在操作系统上的各种程序。
 
-# OS Definition
+## OS Definition
 
 * OS is a <mark>**resource allocator**</mark>
   * *Manages all resources；*管理所有的硬件资源-lab1会接触到定时器timer
@@ -33,7 +33,7 @@ categories:
 * OS is a <mark>**control program**</mark>
   * *Controls execution of programs to prevent errors and improper use of the computer*；当程序出现错误的时候handle这些错误，典型的问题就是C语言对0地址访问之后程序报错退出，不会把整个系统弄崩掉。
 
-## kernel
+### kernel
 
 <mark>**内核**</mark>：操作系统中一直在运行的、最早启动、最先被赋予进程ID的程序就是kernel
 
@@ -41,14 +41,14 @@ categories:
 
 从宏观的角度来看，*因为不可能有一个程序始终都占用CPU在运行*
 
-## Computer Startup
+### Computer Startup
 
 * 启动引导程序**bootstrap program**：
   * 当系统加电启动的时候用来把操作系统的内核加载到内存中去并且开始执行
   * 一般来说放到主板上面的ROM&EPROM中，这就是所谓的固件firmware，是烧录在ROM的
   * *对于现代处理器来说，很重要的是建立虚地址*
 
-# Computer System Organization
+## Computer System Organization
 
 ![](https://z1.ax1x.com/2023/10/02/pPL6qEV.png)
 
@@ -61,7 +61,7 @@ CPU和IO设备是可以并发的运行的
 一个device会被对应的device controller管理，有自己Local buffer，CPU控制local buffer和main memory之间的数据交互。I/O is from the device to local buffer of controller.I/O的pipeline是从device到local buffer到controller的。当操作设备的操作完成之后，device会触发<mark>**interrupt中断**</mark>的方式通知CPU.
 当设备非常多的时候，有<u>*中断控制器*</u>来管理、控制中断。
 
-# Interrupt
+## Interrupt
 
 * polling和vectored是两种中断的类型，polling是CPU定期的检查中断是否发生；vectored是使用**中断向量**的方式处理中断。
 
@@ -75,11 +75,11 @@ trap：软中断，软件触发的中断——程序出错了、故意触发的�
 
 在***RISC-V***中不同的一套术语体系：所有的中断称为traps，下面分为interrupt硬件中断和exceptions异常&ecalls环境调用(RISC-V 中的system call)
 
-## Interrupt handling
+### Interrupt handling
 
 保留运行时的context上下文——也就是寄存器的状态和PC(program counter)
 
-## I/O-Two methods
+### I/O-Two methods
 
 很多的I/O是通过中断的处理来完成的，有同步和异步两种处理中断的方式：
 
@@ -91,27 +91,27 @@ trap：软中断，软件触发的中断——程序出错了、故意触发的�
   
   ![Screenshot-2023-10-05-at-22.14.47.png](https://s1.imagehub.cc/images/2023/10/05/Screenshot-2023-10-05-at-22.14.47.png)
 
-## Device-Status Table
+### Device-Status Table
 
 使用一个链表来管理设备、监控设备的状态、<mark>根据优先级管理</mark>request的队列
 
 ![](https://s1.imagehub.cc/images/2023/10/05/Screenshot-2023-10-05-at-22.15.31.png)
 
-## Direct Memory Access Structure
+### Direct Memory Access Structure
 
 对于高速IO设备中断的效率不够高，可以使用直接内存访问的模式。
 
 DMA能够在CPU不干涉（不是不干预，而是少干预，从per byte—>per block）的情况下和main memory进行数据交互，等到一个block数据传输完了之后才有一个interrupt
 
-# Storage Hierarchy
+## Storage Hierarchy
 
 存储设别在<mark>speed、cost、valatility</mark>三个层面是层级组织的，这里不再赘述。
 
-## Caching
+### Caching
 
 Caching是一种操作，用上层快的缓存下面慢的，<u>main memory可以看作是最后一层cache</u>，用来处理速度不匹配的问题
 
-# Multiprocessor Systems
+## Multiprocessor Systems
 
 多处理器系统
 
@@ -119,7 +119,7 @@ Caching是一种操作，用上层快的缓存下面慢的，<u>main memory可�
 * 多核系统：一个CPU上有多个处理核心，每个core拥有多极缓存多级缓存，在一个chip上的信息传输比chip之间的要快。
 * NUMA架构：不是共享内存，每个CPU有属于自己的local memory，别的CPU的memory称为remote memory，都可以访问但是访问remote memory的时候速度会慢。
 
-# Operating System Structure
+## Operating System Structure
 
 * **批处理系统, Batch Processing Systems**。Jobs 在内存或者外存里，内存始终有一个 job 在运行，操作系统负责在结束后加载下一个开始运行（我们将加载到内存并运行的程序为 **进程, process**）。
   批处理系统的逻辑简单，弊端也非常明显：当进程执行 I/O 时，CPU 会停下来等待事件完成。I/O 事件有可能是和显示器等设备交互，但更耗时的实际上是等待用户进行输入。在这样的系统里，大多数时间浪费在了等用户输入这件事情上。
@@ -130,7 +130,7 @@ Caching是一种操作，用上层快的缓存下面慢的，<u>main memory可�
 
 <u>对于多用户的OS来说multitasking就是把时间分成了一个个小的时间片，每一个时间片给特定的一个user；而在这个时间片内对于这个特定的用户OS又是Multiprogramming的。</u>
 
-# Operating-System Operations
+## Operating-System Operations
 
 操作系统在模式上的分割：User mode和kernel mode(supervisor mode)，两个模式的区别和切换是由**<u>硬件中的一个bit状态位</u>**决定的。有些硬件是privileged，这种硬件只能够在kernel node下面运行，在kernel mode中可以运行“特权”指令（system call，例如在屏幕上显示、调用I/O等），特权指令在user mode中不可以运行。
 <mark>隔离：mode是隔离的，在运行kernel code的时候绝对不可能同时运行着user code</mark>
@@ -146,11 +146,11 @@ Caching是一种操作，用上层快的缓存下面慢的，<u>main memory可�
 
 > 其实操作系统就是提供了很多system call让用户可以去调用，这些system call都是可重入的、并发访问的
 
-# Operating-System functions
+## Operating-System functions
 
 操作系统的主要功能
 
-## Process Management
+### Process Management
 
 > A process is a program in execution
 > 进程就是运行当中的程序
@@ -170,17 +170,17 @@ Caching是一种操作，用上层快的缓存下面慢的，<u>main memory可�
 
 * **进程的管理：建立、删除、恢复、同步、进程之间的沟通、防止deadlock**
 
-## Memory Management
+### Memory Management
 
 内存管理需哟啊解决的是在空间上分割的复用——空分复用
 
 所有的指令和数据要在进程运行之前加载到内存中（不绝对），管理内存的分配、追踪内存、管理进程使用的内存。
 
-## Storage Management
+### Storage Management
 
 管理文件和文件系统，文件系统有基本的创建删除文件、目录的功能；还要有海量文件管理的功能，有并发访问控制等功能。
 
-## I/O
+### I/O
 
 * hide peculiarities：IO设备的种类厂家非常多，需要隐藏IO设备的奇异性，让设备用起来简单，对user提供一个比较统一的接口。
 * OS要保证IO设备的高效

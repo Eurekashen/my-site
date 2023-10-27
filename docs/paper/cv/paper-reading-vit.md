@@ -9,13 +9,13 @@ categories:
 - Computer Vision
 ---
 
-# Vision Transformer
+## Vision Transformer
 
 Transformer在NLP领域大放异彩，直接将Transformer应用在了图像数据上，打破了CV和NLP在模型上的壁垒。让之后的多模态任务只用一个Transformer解决多种数据成为了可能。
 
 在这之后图片分类数据集上表现最好的几个模型都是基于ViT的；而在目标检测例如COCO数据集上表现最好的几个模型是基于Swin Transformer的（可以理解一个多视角的ViT）。
 
-# 应用的困难之处
+## 应用的困难之处
 
 Attention机制需要计算注意力矩阵，是两两计算的，所以计算的复杂度是 $O(n^2) $，一般来说 $d_k=512$（GPT、BERT）。但是图片分类则需要 $224\times 224$的图片大，计算量太大。
 
@@ -24,7 +24,7 @@ Attention机制需要计算注意力矩阵，是两两计算的，所以计算�
   - 其他的attention机制：比如稀疏注意力、轴注意力、孤立注意力（使用类似卷积核的slide window的形式）——但是这些机制都比较特殊，没有对应的加速办法。
   - ViT所采用的是先把图片打碎成一个个的小的patch（这里选用的是 $16\times 16$的大小），编码之后送入模型就和NLP没有区别了。
 
-# 总体架构
+## 总体架构
 
 <center>
 <img src="/sreenshortcut/Screenshot 2023-08-20 at 21.10.30.png">
@@ -42,7 +42,7 @@ Attention机制需要计算注意力矩阵，是两两计算的，所以计算�
   - BERT的预训练使用的是“完形填空”的方式，需要预测被mask掉的词，两种方法的Gound Truth都是原来的词语，所以是自监督的。
 - Hybrid：混合模型，先使用CNN抽取出特征，之后把feature map送入Transformer
 
-# 实验结果
+## 实验结果
 
 <center>
 <img src="/sreenshortcut/Screenshot 2023-08-20 at 21.26.51.png">
@@ -74,6 +74,6 @@ Attention机制需要计算注意力矩阵，是两两计算的，所以计算�
 
 使用1D的位置编码就足够了，也可以学习到2D空间中的信息，所以使用2D的时候和1D没什么差别。
 
-# 局限性
+## 局限性
 
 - 不好迁移到不同大小的图片中（不好finetune），因为图片大小一旦变化了，patch的数量一定会发生变化。

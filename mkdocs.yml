@@ -31,19 +31,21 @@ theme:  #主题
     - search.highlight
     - search.share
     - search.suggest
-  palette:     #切换昼夜模式的颜色，审美差就用默认，专业点就自定义
-    - media: "(prefers-color-scheme: light)" 
-      scheme: default  #配色方案：浅色模式
-      primary: indigo  #原色，默认蓝，用于标题、侧边栏、文本链接和其他几个组件
-      accent: indigo  #强调色，默认蓝，可以交互的元素如悬停链接、按钮和滚动条
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
       toggle:
-        icon: material/weather-sunny #图标，太阳
-        name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"  
-      scheme: slate  #配色方案：深色模式
+        icon: material/lightbulb-variant-outline
+        name: dark mode
+      primary: white
+      accent: deep orange
+    # Palette toggle for dark mode
+    - scheme: slate
       toggle:
-        icon: material/weather-night  #图标，月亮
-        name: Switch to light mode
+        icon: material/lightbulb-variant
+        name: light mode
+      primary: dark
+      accent: deep orange
   font:  #字体，false 则阻止从Google加载字体
   # 内置隐私插件自动下载和自托管 Web 字体文件，无需阻止。其他字体使用附加样式表 extra.css 。
     text: Roboto  #常规字体，默认Roboto，正文、标题等，300、400、400i和700
@@ -156,7 +158,7 @@ nav:
     - Computer Network: 
       - notes/com_net/index-com-net.md
   - Paper reading: 
-    - paper/index-paper-reading.md
+    - Welcome Page: paper/index-paper-reading.md
     - Computer Vision: 
       # - paper/index-cv.md
       - AlexNet: paper/cv/paper-reading-alexnet.md
@@ -183,6 +185,8 @@ nav:
       - DDPM: paper/generative/paper-reading-ddpm_ddim.md
       - GAN: paper/generative/paper-reading-gan.md
       - Stable Diffusion: paper/generative/paper-reading-stable_diffusion.md
+  - Discussion:
+    - Welcome Page: discussion/index-discussion.md
   # - Tools:
   #   - cmake: tools/cmake/tools-cmake.md
   #   - conda: tools/cmake/tools-conda.md

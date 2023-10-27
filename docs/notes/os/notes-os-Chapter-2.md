@@ -8,7 +8,7 @@ categories:
 - Operating System
 ---
 
-# Operating System Services
+## Operating System Services
 
 * 从user的角度：
 
@@ -27,7 +27,7 @@ categories:
     * Protection：保证系统的所有资源都是在OS的控制之下的；
     * security：用户登陆验证、拒绝没有被授权的I/O设备连接；
 
-# System Calls
+## System Calls
 
 又称为trap、软中断，是OS提供的调用系统服务的编程接口，一般是使用高级编程器语言诸如C/C++编写的。
 
@@ -37,14 +37,14 @@ categories:
 
   > Three most common APIs are Win32 API for Windows, POSIX API for POSIX-based systems (including virtually all versions of UNIX, Linux, and Mac OS X), and Java API for the Java virtual machine (JVM)
 
-## System Call Implementation
+### System Call Implementation
 
 * number：首先所有的system call都要有一个number，代表了不同功能的system call；通过统一的接口trap进kernel之后通过这个number判断是哪个system call。一般使用一个table，number就是对应的下标。
 * 调用者可以是programmer也可以是standard library，实现细节是被隐藏的。
 
 ![](https://s1.imagehub.cc/images/2023/10/07/Screenshot-2023-10-07-at-14.28.01.png)
 
-## System Call Parameter Passing
+### System Call Parameter Passing
 
 * registers：使用寄存器传递参数
 * block/table：
@@ -55,7 +55,7 @@ categories:
 ![](https://s1.imagehub.cc/images/2023/10/07/Screenshot-2023-10-07-at-14.31.30.png)
 *注意上图没有画出virtual address转换的过程*
 
-## Types of System Calls
+### Types of System Calls
 
 System call的种类
 
@@ -70,7 +70,7 @@ System call的种类
 
 ![](https://s1.imagehub.cc/images/2023/10/07/Screenshot-2023-10-07-at-14.29.20.png)
 
-# System Programs
+## System Programs
 
 System Programs提供了一个便捷的开发环境，大多数的user实际上是在使用system program而不是真正的system call；可以被分为以下部分：
 
@@ -82,7 +82,7 @@ System Programs提供了一个便捷的开发环境，大多数的user实际上�
 * Communications：提供在processes, users, and computer systems之间的的沟通机制
 * Application programs：
 
-# Operating System Design and Implementation
+## Operating System Design and Implementation
 
 * OS设计和实现的原则：
 
@@ -100,19 +100,19 @@ System Programs提供了一个便捷的开发环境，大多数的user实际上�
   >
   > 还有就是系统的配置文件都是policy，在/etc目录下
 
-# Operating System Structure
+## Operating System Structure
 
 只是一种概念的分层，在源代码层次没有这样的分层
 
-## Simple Structure 
+### Simple Structure 
 
 所有的都是揉到一起的，典型的代表就是MS-DOS系统
 
-## Layered Approach
+### Layered Approach
 
 分层的结构，最底层是硬件、最上层是user
 
-## Monolithic structure
+### Monolithic structure
 
 宏内核结构，放在kernel中的东西多，把所有的功能都在内核中实现了
 
@@ -122,7 +122,7 @@ System Programs提供了一个便捷的开发环境，大多数的user实际上�
 
 
 
-## Microkernel System Structure
+### Microkernel System Structure
 
 微内核，典型的代表是mac os
 
@@ -132,7 +132,7 @@ user modules之间通过message passing来沟通，效率低（因为要先进�
 
 ![](https://s1.imagehub.cc/images/2023/10/07/Screenshot-2023-10-07-at-15.00.15.png)
 
-## Modular kernel
+### Modular kernel
 
 模块化的kernel
 
@@ -142,7 +142,7 @@ xxx.ko文件就是对应的内核文件
 
 *Linux某种程度上是宏内核，但是采用了一些模块化的方式使得kernel更精简，可以支持的功能也更多。*
 
-## Other Structures
+### Other Structures
 
 * Exokernel：“外核”
 
@@ -162,7 +162,7 @@ xxx.ko文件就是对应的内核文件
    <img src="https://s1.imagehub.cc/images/2023/10/07/Screenshot-2023-10-07-at-15.04.08.png" style="zoom:50%;" />
   </center>
 
-# Virtual Machines
+## Virtual Machines
 
 使用layered approach，最后把硬件都虚拟出来了，让OS kernel认为自己是在硬件上面运行的；物理机把资源共享给了虚拟机。
 

@@ -8,7 +8,7 @@ categories:
 - Operating System
 ---
 
-# Process Concept
+## Process Concept
 
 在教科书中jobs/process这两个术语是可以相互替换的
 Process就是一个正在执行的程序
@@ -24,7 +24,7 @@ Process就是一个正在执行的程序
   * 进程还包含program counter
   * 如果本地变量的太多例如一个超长的数组，就会发生<mark>stack overflow</mark>
 
-# Process State
+## Process State
 
 进程的状态，使用`ps`命令查看进程的状态
 

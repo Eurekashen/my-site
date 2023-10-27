@@ -1,4 +1,4 @@
-site_name: Shuaike Shen's Notebook  #网站名称
+site_name: Shuaike Shen's Site  #网站名称
 site_description: My personal website  #站点描述
 site_author: Shuaie Shen   #作者
 
@@ -129,19 +129,13 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.js
 
 extra:
-#  version: #版本控制
-#    provider: mike
-#  homepage: https://example.com  #通常logo链接到主页，这里可修改
-  social:  #页脚
-    - icon: fontawesome/brands/twitter   #社交链接
-      link: https://twitter.com/squidfunk
-      name: squidfunk on Twitter  #一般自动提取
-    - icon: fontawesome/solid/paper-plane  #电子邮件
-      link: mailto:admin@yiruru.com
-#  generator: false  #删除通知“Made with Material for Mk，一般不必
-#  analytics: #设置站点分析
-#    provider: google
-#    property: G-XXXXXXXXXX
+  social:
+    - icon: fontawesome/brands/github 
+      link: https://github.com/Eurekashen
+      name: Github
+    - icon: fontawesome/regular/envelope
+      link: mailto:shenshuaike256@gmail.com
+  generator: true
 
 nav:
   - Welcome Page: 
@@ -185,6 +179,8 @@ nav:
       - DDPM: paper/generative/paper-reading-ddpm_ddim.md
       - GAN: paper/generative/paper-reading-gan.md
       - Stable Diffusion: paper/generative/paper-reading-stable_diffusion.md
+  - Tools: 
+    - Welcome Page: tools/index.md
   - Discussion:
     - Welcome Page: discussion/index-discussion.md
   # - Tools:

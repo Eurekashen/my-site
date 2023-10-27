@@ -286,7 +286,7 @@
   
     
   
-  Welcome Page
+  Home Page
 
         </a>
       </li>
@@ -454,7 +454,7 @@
               
   
   <span class="md-ellipsis">
-    Welcome Page
+    Home Page
   </span>
   
 
@@ -465,7 +465,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
-            Welcome Page
+            Home Page
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1149,11 +1149,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../index-ai-for-sci/" class="md-nav__link">
+      <a href="../../ai_for_sci/paper-reading-vfn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Index ai for sci
+    DE NOVO PROTEIN DESIGN USING GEOMETRIC VECTOR FIELD NETWORKS
   </span>
   
 
@@ -1714,27 +1714,24 @@
 <li>
 <blockquote>
 <p>KL（Kullback-Leibler）散度，也称为相对熵（Relative Entropy），是一种用于衡量两个概率分布之间差异的度量方式。它用来量化从一个概率分布（真实分布）到另一个概率分布（近似分布或模型分布）的信息丢失程度，或者说是从一个分布中获得真实分布所需的额外信息量。</p>
-<div class="highlight"><pre><span></span><code>&gt; 给定两个离散概率分布 $$P(x)$$ 和 $$Q(x)$$，KL散度定义为：
-
-&gt; $$D_{KL}(P \parallel Q) = \sum_x P(x) \log \frac{P(x)}{Q(x)}$$
-
-&gt; 对于连续分布，KL散度定义为：
-
-&gt; $$D_{KL}(P \parallel Q) = \int P(x) \log \frac{P(x)}{Q(x)} \, dx$$
-
-&gt; 值得注意的是，KL散度并不是对称的，即 $$D_{KL}(P \parallel Q) \neq D_{KL}(Q \parallel P)$$。这意味着在实际应用中，选择哪个分布作为“真实分布”和“近似分布”会影响KL散度的值。
-
-&gt; KL散度有以下几个重要性质：
-
-&gt; 1. 非负性： $$D_{KL}(P \parallel Q) \geq 0$$，当且仅当 $$P(x) = Q(x)$$ 时取等号。
-&gt; 2. 非对称性： $$D_{KL}(P \parallel Q) \neq D_{KL}(Q \parallel P)$$。
-&gt; 3. 不满足三角不等式：一般情况下， $$D_{KL}(P \parallel R) \nleq D_{KL}(P \parallel Q) + D_{KL}(Q \parallel R)$$。
-
-&gt; 在机器学习中，KL散度常用于测量模型分布与真实数据分布之间的差异，例如在生成模型中用于衡量生成的样本分布与真实数据分布之间的差异。最小化KL散度或者等价地最大化KL散度的负值（KL散度的对偶形式），在许多情况下可以用来优化模型参数，使模型分布逼近真实数据分布。
-</code></pre></div>
 </blockquote>
 </li>
 </ul>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>给定两个离散概率分布 <span class="arithmatex">\(<span class="arithmatex">\(P(x)\)</span>\)</span> 和 <span class="arithmatex">\(<span class="arithmatex">\(Q(x)\)</span>\)</span>，KL散度定义为：</p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(D_{KL}(P \parallel Q) = \sum_x P(x) \log \frac{P(x)}{Q(x)}\)</span>\)</span></p>
+<p>对于连续分布，KL散度定义为：</p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(D_{KL}(P \parallel Q) = \int P(x) \log \frac{P(x)}{Q(x)} \, dx\)</span>\)</span></p>
+<p>值得注意的是，KL散度并不是对称的，即 <span class="arithmatex">\(<span class="arithmatex">\(D_{KL}(P \parallel Q) \neq D_{KL}(Q \parallel P)\)</span>\)</span>。这意味着在实际应用中，选择哪个分布作为“真实分布”和“近似分布”会影响KL散度的值。</p>
+<p>KL散度有以下几个重要性质：</p>
+<ol>
+<li>非负性： <span class="arithmatex">\(<span class="arithmatex">\(D_{KL}(P \parallel Q) \geq 0\)</span>\)</span>，当且仅当 <span class="arithmatex">\(<span class="arithmatex">\(P(x) = Q(x)\)</span>\)</span> 时取等号。</li>
+<li>非对称性： <span class="arithmatex">\(<span class="arithmatex">\(D_{KL}(P \parallel Q) \neq D_{KL}(Q \parallel P)\)</span>\)</span>。</li>
+<li>不满足三角不等式：一般情况下， <span class="arithmatex">\(<span class="arithmatex">\(D_{KL}(P \parallel R) \nleq D_{KL}(P \parallel Q) + D_{KL}(Q \parallel R)\)</span>\)</span>。</li>
+</ol>
+<p>在机器学习中，KL散度常用于测量模型分布与真实数据分布之间的差异，例如在生成模型中用于衡量生成的样本分布与真实数据分布之间的差异。最小化KL散度或者等价地最大化KL散度的负值（KL散度的对偶形式），在许多情况下可以用来优化模型参数，使模型分布逼近真实数据分布。</p>
+</div>
 
   <hr>
 <div class="md-source-file">

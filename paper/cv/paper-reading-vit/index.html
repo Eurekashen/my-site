@@ -522,7 +522,7 @@
         
   
   <span class="md-ellipsis">
-    Lecture Notes
+    Index lecture notes
   </span>
   
 
@@ -1006,8 +1006,17 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ViT
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1018,6 +1027,60 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Content">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vision-transformer" class="md-nav__link">
+    Vision Transformer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    应用的困难之处
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    总体架构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    实验结果
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    局限性
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1578,8 +1641,49 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vision-transformer" class="md-nav__link">
+    Vision Transformer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    应用的困难之处
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    总体架构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    实验结果
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    局限性
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1597,10 +1701,12 @@
   
 
 
-<h1 id="vision-transformer">Vision Transformer<a class="headerlink" href="#vision-transformer" title="Permanent link">&para;</a></h1>
+  <h1>ViT</h1>
+
+<h2 id="vision-transformer">Vision Transformer<a class="headerlink" href="#vision-transformer" title="Permanent link">&para;</a></h2>
 <p>Transformer在NLP领域大放异彩，直接将Transformer应用在了图像数据上，打破了CV和NLP在模型上的壁垒。让之后的多模态任务只用一个Transformer解决多种数据成为了可能。</p>
 <p>在这之后图片分类数据集上表现最好的几个模型都是基于ViT的；而在目标检测例如COCO数据集上表现最好的几个模型是基于Swin Transformer的（可以理解一个多视角的ViT）。</p>
-<h1 id="_1">应用的困难之处<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_1">应用的困难之处<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Attention机制需要计算注意力矩阵，是两两计算的，所以计算的复杂度是 $O(n^2) $，一般来说 <span class="arithmatex">\(d_k=512\)</span>（GPT、BERT）。但是图片分类则需要 <span class="arithmatex">\(224\times 224\)</span>的图片大，计算量太大。</p>
 <ul>
 <li>相关的解决的办法</li>
@@ -1608,7 +1714,7 @@
 <li>其他的attention机制：比如稀疏注意力、轴注意力、孤立注意力（使用类似卷积核的slide window的形式）——但是这些机制都比较特殊，没有对应的加速办法。</li>
 <li>ViT所采用的是先把图片打碎成一个个的小的patch（这里选用的是 <span class="arithmatex">\(16\times 16\)</span>的大小），编码之后送入模型就和NLP没有区别了。</li>
 </ul>
-<h1 id="_2">总体架构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<h2 id="_2">总体架构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><center>
 <a class="glightbox" href="/sreenshortcut/Screenshot 2023-08-20 at 21.10.30.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/sreenshortcut/Screenshot 2023-08-20 at 21.10.30.png"></a>
 </center></p>
@@ -1625,7 +1731,7 @@
 <li>BERT的预训练使用的是“完形填空”的方式，需要预测被mask掉的词，两种方法的Gound Truth都是原来的词语，所以是自监督的。</li>
 <li>Hybrid：混合模型，先使用CNN抽取出特征，之后把feature map送入Transformer</li>
 </ul>
-<h1 id="_3">实验结果<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<h2 id="_3">实验结果<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><center>
 <a class="glightbox" href="/sreenshortcut/Screenshot 2023-08-20 at 21.26.51.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/sreenshortcut/Screenshot 2023-08-20 at 21.26.51.png"></a>
 </center></p>
@@ -1651,7 +1757,7 @@
 <a class="glightbox" href="/sreenshortcut/Screenshot 2023-08-20 at 21.40.09.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/sreenshortcut/Screenshot 2023-08-20 at 21.40.09.png"></a>
 </center></p>
 <p>使用1D的位置编码就足够了，也可以学习到2D空间中的信息，所以使用2D的时候和1D没什么差别。</p>
-<h1 id="_4">局限性<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<h2 id="_4">局限性<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
 <li>不好迁移到不同大小的图片中（不好finetune），因为图片大小一旦变化了，patch的数量一定会发生变化。</li>
 </ul>

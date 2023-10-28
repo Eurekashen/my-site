@@ -138,8 +138,9 @@ extra:
   generator: true
 
 nav:
-  - Welcome Page: 
+  - Home Page: 
     - Welcome Page: index.md
+    # - About me: 
   - Lecture Notes: 
     - notes/index-lecture-notes.md
     - Operating System: 
@@ -164,7 +165,7 @@ nav:
       # - paper/index-3dv.md
       - NeRF: paper/3dv/paper-reading-nerf.md
     - AI+X: 
-      - paper/index-ai-for-sci.md
+      - DE NOVO PROTEIN DESIGN USING GEOMETRIC VECTOR FIELD NETWORKS: paper/ai_for_sci/paper-reading-vfn.md
     - Natural Language Processing: 
       # - paper/index-nlp.md
       - BERT: paper/nlp/paper-reading-bert.md
@@ -181,14 +182,10 @@ nav:
       - Stable Diffusion: paper/generative/paper-reading-stable_diffusion.md
   - Tools: 
     - Welcome Page: tools/index.md
+    - conda: tools/cmake/tools-conda.md
   - Discussion:
     - Welcome Page: discussion/index-discussion.md
-  # - Tools:
-  #   - cmake: tools/cmake/tools-cmake.md
-  #   - conda: tools/cmake/tools-conda.md
-  #   - docker: tools/cmake/tools-docker.md
-  #   - git: tools/cmake/tools-git.md
-  #   - shell: tools/cmake/tools-shell-linux.md
-  # - Programming:
-  #   - python: program/python/progamming-python.md
-  #   - java: program/python/progamming-java.md
+  - Knowledge Base: 
+    - Welcome Page: knowledge/index.md
+    # - Machine Learning | Deep Learning: 
+      # - ICRL | In-Context Reinforcement Learning: 

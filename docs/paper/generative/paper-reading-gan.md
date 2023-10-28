@@ -49,21 +49,22 @@ GAN模型的训练过程非常的有意思，使用的是没有标号的数据�
 - KL散度：
 
   - > KL（Kullback-Leibler）散度，也称为相对熵（Relative Entropy），是一种用于衡量两个概率分布之间差异的度量方式。它用来量化从一个概率分布（真实分布）到另一个概率分布（近似分布或模型分布）的信息丢失程度，或者说是从一个分布中获得真实分布所需的额外信息量。
-    >
-    > 给定两个离散概率分布 $$P(x)$$ 和 $$Q(x)$$，KL散度定义为：
-    >
-    > $$D_{KL}(P \parallel Q) = \sum_x P(x) \log \frac{P(x)}{Q(x)}$$
-    >
-    > 对于连续分布，KL散度定义为：
-    >
-    > $$D_{KL}(P \parallel Q) = \int P(x) \log \frac{P(x)}{Q(x)} \, dx$$
-    >
-    > 值得注意的是，KL散度并不是对称的，即 $$D_{KL}(P \parallel Q) \neq D_{KL}(Q \parallel P)$$。这意味着在实际应用中，选择哪个分布作为“真实分布”和“近似分布”会影响KL散度的值。
-    >
-    > KL散度有以下几个重要性质：
-    >
-    > 1. 非负性： $$D_{KL}(P \parallel Q) \geq 0$$，当且仅当 $$P(x) = Q(x)$$ 时取等号。
-    > 2. 非对称性： $$D_{KL}(P \parallel Q) \neq D_{KL}(Q \parallel P)$$。
-    > 3. 不满足三角不等式：一般情况下， $$D_{KL}(P \parallel R) \nleq D_{KL}(P \parallel Q) + D_{KL}(Q \parallel R)$$。
-    >
-    > 在机器学习中，KL散度常用于测量模型分布与真实数据分布之间的差异，例如在生成模型中用于衡量生成的样本分布与真实数据分布之间的差异。最小化KL散度或者等价地最大化KL散度的负值（KL散度的对偶形式），在许多情况下可以用来优化模型参数，使模型分布逼近真实数据分布。
+
+!!! quote
+     给定两个离散概率分布 $$P(x)$$ 和 $$Q(x)$$，KL散度定义为：
+    
+     $$D_{KL}(P \parallel Q) = \sum_x P(x) \log \frac{P(x)}{Q(x)}$$
+    
+     对于连续分布，KL散度定义为：
+    
+     $$D_{KL}(P \parallel Q) = \int P(x) \log \frac{P(x)}{Q(x)} \, dx$$
+    
+     值得注意的是，KL散度并不是对称的，即 $$D_{KL}(P \parallel Q) \neq D_{KL}(Q \parallel P)$$。这意味着在实际应用中，选择哪个分布作为“真实分布”和“近似分布”会影响KL散度的值。
+    
+     KL散度有以下几个重要性质：
+    
+     1. 非负性： $$D_{KL}(P \parallel Q) \geq 0$$，当且仅当 $$P(x) = Q(x)$$ 时取等号。
+     2. 非对称性： $$D_{KL}(P \parallel Q) \neq D_{KL}(Q \parallel P)$$。
+     3. 不满足三角不等式：一般情况下， $$D_{KL}(P \parallel R) \nleq D_{KL}(P \parallel Q) + D_{KL}(Q \parallel R)$$。
+    
+    在机器学习中，KL散度常用于测量模型分布与真实数据分布之间的差异，例如在生成模型中用于衡量生成的样本分布与真实数据分布之间的差异。最小化KL散度或者等价地最大化KL散度的负值（KL散度的对偶形式），在许多情况下可以用来优化模型参数，使模型分布逼近真实数据分布。

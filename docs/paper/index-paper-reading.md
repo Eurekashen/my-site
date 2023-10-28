@@ -1,6 +1,7 @@
 ## Paper reading
 !!! Info
     The paper reading notes consist of the following parts/direactions
+    
     * Computer Vision
 
     * Natural Language Processing

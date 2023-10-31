@@ -16,6 +16,12 @@ The main problem of IPA encoder is that it uses pooling operation and the single
 
 ## Pipeline of the VFN
 
+Firstly I want to introduce the common paradigm of de novo protein design. I think
+the explaination in the original paper is really clear and easy to understand.
+
+!!! quote
+    The paradigm that combines protein structure diffusion models with inverse folding networks. Specifically, this paradigm initiates by employing a protein diffusion model to stochastically generate the backbone structure of represented by residue frames. Since the types of amino acids in the generated protein are initially unknown, an inverse folding network is then utilized to design the protein sequences for each residue based on the backbone residue frames. While this paradigm brings huge success for protein design, it also brings challenges for deep learning-based protein structure encoders.
+
 ```mermaid
 graph LR
     A[Vector field operator] --> B[node interaction]

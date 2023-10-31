@@ -8,17 +8,21 @@ categories:
 - Conda
 ---
 
-# Conda
+## Manage the environment
 
-- 从已有的conda环境clone出一个新的conda环境
+- Clone a new conda environment from an exisitng environment, and the "source_env" can by a environment name or the path to the environment .
 
   ```bash
   conda create --name new_env --clone source_env
   ```
 
-- environment.yaml的使用，创建环境和导出现有的环境
+- About how to utilize the "environment.yaml". "environment.yaml" is applicable to transfer the conda environment between different operating system.
 
   ```bash
   conda env create -f environment.yaml
   conda env export > environment.yaml
   ```
+
+!!! tip
+  We can put the conda environment the mounted NAS so that we can easily share the conda environment between different server. 
+  We just need to modify the initialize path of conda in the `~/.bashrc` file.

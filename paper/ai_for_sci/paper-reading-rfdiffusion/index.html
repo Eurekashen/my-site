@@ -2280,21 +2280,19 @@
 <p><a href="https://www.imagehub.cc/image/1eXZht"><img alt="325b57183beb3d79dd72daa7d799590f.png" src="https://s1.imagehub.cc/images/2023/10/31/325b57183beb3d79dd72daa7d799590f.png" /></a></p>
 <p>These two methods are focused on the task which given some known motif or significant functional parts and design some new structures with the specific function. In the section below, the paper shows the result about scaffolding and peptide binder design.</p>
 <p>!!!  note Hallucination
-    The hallucination is often appear in the large language models. For example, we give the model an input "explain the content of human.pdf" and the model like ChatGPT is more likely to output explaination related to "human". In our scenario, we want to the model "make it up" based on the input motifs. In my opinion, the hallucination is a sort of generalization.</p>
+        The hallucination is often appear in the large language models. For example, we give the model an input "explain the content of human.pdf" and the model like ChatGPT is more likely to output explaination related to "human". In our scenario, we want to the model "make it up" based on the input motifs. In my opinion, the hallucination is a sort of generalization.</p>
 <p>!!! note Inpaiting 
-    The biggest difference between hallucination and inpainting design is that the input motifs must appear in the inpainting designed sequence but unlikely to appear in the hallucination designed one.</p>
+        The biggest difference between hallucination and inpainting design is that the input motifs must appear in the inpainting designed sequence but unlikely to appear in the hallucination designed one.</p>
 <h2 id="model-details">Model Details<a class="headerlink" href="#model-details" title="Permanent link">&para;</a></h2>
 <h3 id="diffusion-model">Diffusion model<a class="headerlink" href="#diffusion-model" title="Permanent link">&para;</a></h3>
 <p><a href="https://www.imagehub.cc/image/1eZRHr"><img alt="915d07581e578c96739c315598b3f44a.png" src="https://s1.imagehub.cc/images/2023/10/31/915d07581e578c96739c315598b3f44a.png" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The advantages of useing diffusion models for protein design</p>
+<p>The advantages of useing diffusion models for protein design
+* Endlessly diverse outputs
+* Can operate diectly on amino acid coordinates
+* Conveniently guided and conditioned</p>
 </div>
-<ul>
-<li>Endlessly diverse outputs</li>
-<li>Can operate diectly on amino acid coordinates</li>
-<li>Conveniently guided and conditioned</li>
-</ul>
 <p><a href="https://www.imagehub.cc/image/1eZ8uL"><img src="https://s1.imagehub.cc/images/2023/10/31/d70512564d354ded8019845c24e8399c.png" alt="d70512564d354ded8019845c24e8399c.png" border="0" /></a></p>
 <h3 id="the-representation-of-the-protein-structure">The representation of the protein structure<a class="headerlink" href="#the-representation-of-the-protein-structure" title="Permanent link">&para;</a></h3>
 <p><a href="https://www.imagehub.cc/image/1eZk70"><img src="https://s1.imagehub.cc/images/2023/10/31/0e4ab6e29bee546eb3dea18d7b8c6c78.png" alt="0e4ab6e29bee546eb3dea18d7b8c6c78.png" border="0" /></a></p>
@@ -2349,7 +2347,7 @@
 <p>We can simply input the blokc adjaceny matrix into the model, as I have mentioned above, the diffusion models can be easily conditioned.</p>
 <p>The results showed in the following figure verify the ability of RFdiffusion.</p>
 <p><a href="https://www.imagehub.cc/image/1e2fpr"><img src="https://s1.imagehub.cc/images/2023/10/31/737205d3d61d405703053420ce8e0f62.png" alt="737205d3d61d405703053420ce8e0f62.png" border="0" /></a></p>
-<p>!!!  note[TIM Barrel]
+<p>!!!  note TIM Barrel
     The TIM barrel (triose-phosphate isomerase), also known as an alpha/beta barrel,[1]: 252  is a conserved protein fold consisting of eight alpha helices (α-helices) and eight parallel beta strands (β-strands) that alternate along the peptide backbone.</p>
 <p><a href="https://www.imagehub.cc/image/1e2CaS"><img src="https://s1.imagehub.cc/images/2023/10/31/21d6a99312d0011f5100f2ee9f910fa4.png" alt="21d6a99312d0011f5100f2ee9f910fa4.png" border="0" /></a></p>
 <p>And we can see the structures are high in silico success rates, which indicates the high designabiliy.</p>
@@ -2378,11 +2376,11 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">2023.10.31 19:28:30 CST</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">2023.10.31 19:54:53 CST</span>
       
         <br>
         创建日期:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">2023.10.31 19:28:30 CST</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">2023.10.31 19:54:53 CST</span>
       
     
   </small>

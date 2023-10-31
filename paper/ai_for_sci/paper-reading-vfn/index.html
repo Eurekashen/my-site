@@ -1848,6 +1848,8 @@
       
         
       
+        
+      
     
     
     
@@ -1889,6 +1891,26 @@
   
   <span class="md-ellipsis">
     ICRL | In-Context Reinforcement Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../knowledge/graphomer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graphomer
   </span>
   
 
@@ -2002,6 +2024,12 @@
 <p>The encoder used in the previous protein design and inversing folding task is IPA eocoder, which is derived from Alphafold.</p>
 <p>The main problem of IPA encoder is that it uses pooling operation and the single pooled distance value to represent the atom feature. So that the IPA network cannot provide learnable weights for the coordinates of each atom, facing the <strong><mark>atom representation bottleneck</mark></strong>.</p>
 <h2 id="pipeline-of-the-vfn">Pipeline of the VFN<a class="headerlink" href="#pipeline-of-the-vfn" title="Permanent link">&para;</a></h2>
+<p>Firstly I want to introduce the common paradigm of de novo protein design. I think
+the explaination in the original paper is really clear and easy to understand.</p>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>The paradigm that combines protein structure diffusion models with inverse folding networks. Specifically, this paradigm initiates by employing a protein diffusion model to stochastically generate the backbone structure of represented by residue frames. Since the types of amino acids in the generated protein are initially unknown, an inverse folding network is then utilized to design the protein sequences for each residue based on the backbone residue frames. While this paradigm brings huge success for protein design, it also brings challenges for deep learning-based protein structure encoders.</p>
+</div>
 <pre class="mermaid"><code>graph LR
     A[Vector field operator] --&gt; B[node interaction]
     B --&gt; C[edge interaction]

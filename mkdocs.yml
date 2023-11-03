@@ -148,6 +148,9 @@ nav:
       - Chapter 1 | Introduction: notes/os/notes-os-Chapter-1.md
       - Chapter 2 | Operating-System Structures: notes/os/notes-os-Chapter-2.md
       - Chapter 3 | Processes: notes/os/notes-os-Chapter-3.md
+      - Chapter 4 | Threads: notes/os/notes-os-Chapter-4.md
+      - Chapter 5 | CPU Scheduling: notes/os/notes-os-Chapter-5.md
+      - Chapter 6 | Process Synchronization: notes/os/notes-os-Chapter-6.md
     - Computer Architecture: 
       - notes/com_arch/index-com-arch.md
     - Computer Network: 

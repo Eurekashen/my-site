@@ -185,3 +185,10 @@ And we can combine the motif scaffolding protocol with the oligomers generation 
 <a href="https://www.imagehub.cc/image/1e2gBB"><img src="https://s1.imagehub.cc/images/2023/10/31/5eaa5b49a9da2df408046019fb1327c4.png" alt="5eaa5b49a9da2df408046019fb1327c4.png" border="0" /></a>
 
 That is very relvant to disease diagnosis and treatment. What we want is input the peptide and get the corresponding binders.
+
+The method of how to design the protein binder is briefly explained in the paper.
+
+!!! quote 
+	To enable this, we fine-tuned RFdiffusion on protein complex structures, providing a feature as input indicating a subset of the residues on the target chain (called ‘interface hotspots’) to which the diffused chain binds (Fig. 6a and Extended Data Fig. 8a,b).
+
+<a href="https://www.imagehub.cc/image/1leGtJ"><img src="https://s1.imagehub.cc/images/2023/11/01/5a190b1fad9fbdd39a24d9037c0c3883.png" alt="5a190b1fad9fbdd39a24d9037c0c3883.png" border="0" /></a>

@@ -2065,11 +2065,11 @@
 <p>Transformer</p>
 </li>
 </ul>
-<p>$$
-Q=XW_Q,K=XW_K,V=XW_V \
+<div class="arithmatex">\[
+Q=XW_Q,K=XW_K,V=XW_V \\
 A=\frac{QK^T}{\sqrt{d_K}},Attention(X)=softmax(A)V
-$$
-<strong><span class="arithmatex">\(W_Q,W_K,W_V\)</span> is learnable</strong></p>
+\]</div>
+<p><strong><span class="arithmatex">\(W_Q,W_K,W_V\)</span> is learnable</strong></p>
 <h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h2>
 <p>Graphormer中transformer主要应用在消息传递中消息的计算，也就是aggregate的部分。与GCN只在邻居计算消息不同，Graphormer将每个节点都看成连通的来计算两两节点之间的Attention Bias。</p>
 

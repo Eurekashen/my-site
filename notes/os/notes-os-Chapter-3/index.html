@@ -9,14 +9,14 @@
         <meta name="description" content="My personal website">
       
       
-        <meta name="author" content="Shuaike Shen">
+        <meta name="author" content="Shuaie Shen">
       
       
       
         <link rel="prev" href="../notes-os-Chapter-2/">
       
       
-        <link rel="next" href="../../com_arch/index-com-arch/">
+        <link rel="next" href="../notes-os-Chapter-4/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Chapter3 Processes - Shuaike Shen's Site</title>
+        <title>Chapter 3 | Processes - Shuaike Shen's Site</title>
       
     
     
@@ -138,11 +138,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#process-concept" class="md-skip">
-          跳转至
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -173,7 +168,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Chapter3 Processes
+              Chapter 3 | Processes
             
           </span>
         </div>
@@ -617,6 +612,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -700,17 +701,6 @@
       
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Chapter 3 | Processes
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -721,39 +711,66 @@
 
       </a>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes-os-Chapter-4/" class="md-nav__link">
         
-
+  
+  <span class="md-ellipsis">
+    Chapter 4 | Threads
+  </span>
   
 
-<nav class="md-nav md-nav--secondary" aria-label="Content">
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
   
   
   
+    <li class="md-nav__item">
+      <a href="../notes-os-Chapter-5/" class="md-nav__link">
+        
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Content
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#process-concept" class="md-nav__link">
-    Process Concept
-  </a>
+  <span class="md-ellipsis">
+    Chapter 5 | CPU Scheduling
+  </span>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#process-state" class="md-nav__link">
-    Process State
-  </a>
+
+      </a>
+    </li>
   
-</li>
-      
-    </ul>
+
+              
+            
+              
+                
   
-</nav>
-      
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes-os-Chapter-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 | Process Synchronization
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1948,28 +1965,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Content
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#process-concept" class="md-nav__link">
-    Process Concept
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#process-state" class="md-nav__link">
-    Process State
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1988,50 +1983,14 @@
 
   <h1>Chapter 3 | Processes</h1>
 
-<h2 id="process-concept">Process Concept<a class="headerlink" href="#process-concept" title="Permanent link">&para;</a></h2>
-<p>在教科书中jobs/process这两个术语是可以相互替换的
-Process就是一个正在执行的程序</p>
-<ul>
-<li>进程的结构图：</li>
-</ul>
-<p><center>
-    <a class="glightbox" href="https://s1.imagehub.cc/images/2023/10/07/Screenshot-2023-10-07-at-11.24.58.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="https://s1.imagehub.cc/images/2023/10/07/Screenshot-2023-10-07-at-11.24.58.png" style="zoom:80%;" /></a>
-  </center></p>
-<ul>
-<li>这里的stack和heap和数据结构中的区分</li>
-<li>text section存储的是程序的代码，data section存储的global的变量；stack中存储function parameters, local vars, return addresses等；heap中存储的是动态分配malloc的内存；</li>
-<li>进程还包含program counter</li>
-<li>如果本地变量的太多例如一个超长的数组，就会发生<mark>stack overflow</mark></li>
-</ul>
-<h2 id="process-state">Process State<a class="headerlink" href="#process-state" title="Permanent link">&para;</a></h2>
-<p>进程的状态，使用<code>ps</code>命令查看进程的状态</p>
-<ul>
-<li>
-<p>new:  The process is being created</p>
-</li>
-<li>
-<p>running：Instructions are being executed</p>
-</li>
-<li>
-<p>waiting：The process is waiting/blocked for some event to occur</p>
-</li>
-<li>
-<p>ready：The process is waiting to be assigned to a processor</p>
-</li>
-<li>terminated：The process has finished execution</li>
-</ul>
-<p>区分waiting和ready，ready是等待CPU；waiting是等待别的事件（e.g:I/O）的发生</p>
-<ul>
-<li>使用state diagram来表示state transition</li>
-</ul>
-<p><a class="glightbox" href="https://s1.imagehub.cc/images/2023/10/07/Screenshot-2023-10-07-at-11.34.44.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="https://s1.imagehub.cc/images/2023/10/07/Screenshot-2023-10-07-at-11.34.44.png" /></a></p>
+
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">2023.10.27 11:59:34 CST</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">2023.11.03 19:35:27 CST</span>
       
         <br>
         创建日期:

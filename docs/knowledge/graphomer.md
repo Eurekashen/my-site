@@ -10,9 +10,13 @@
 * Transformer
 
 $$
-Q=XW_Q,K=XW_K,V=XW_V \\
+Q=XW_Q,K=XW_K,V=XW_V
+$$
+
+$$
 A=\frac{QK^T}{\sqrt{d_K}},Attention(X)=softmax(A)V
 $$
+
 **$W_Q,W_K,W_V$ is learnable**
 
 ## Implementation

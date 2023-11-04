@@ -198,5 +198,7 @@ nav:
       - Graphomer: knowledge/graphomer.md
       - Deepseek Coder: knowledge/deepseek_coder.md
       - VAE: knowledge/VAE.md
+    - Mathematic Basic:
+      - KL divergence: knowledge/KL.md
     # - Machine Learning | Deep Learning: 
       # - ICRL | In-Context Reinforcement Learning: 

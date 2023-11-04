@@ -142,7 +142,7 @@ nav:
     - Welcome Page: index.md
     - About me: about_me.md
   - Lecture Notes: 
-    - notes/index-lecture-notes.md
+    - Information: notes/index-lecture-notes.md
     - Operating System: 
       # - notes/os/index-os.md
       - Chapter 1 | Introduction: notes/os/notes-os-Chapter-1.md
@@ -169,7 +169,9 @@ nav:
       - NeRF: paper/3dv/paper-reading-nerf.md
     - AI+X: 
       - DE NOVO PROTEIN DESIGN USING GEOMETRIC VECTOR FIELD NETWORKS: paper/ai_for_sci/paper-reading-vfn.md
-      - De novo design of protein structure and function with RFdiffusion: paper/ai_for_sci/paper-reading-rfdiffusion.md
+      - De novo design of protein structure and function with RFdiffusion: paper/ai_for_sci/paper-reading-rfdiffusion.md\
+      - AlphaFold Latest Report: paper/ai_for_sci/alphafold-report.md
+      - ProGen2: paper/ai_for_sci/progen2.md
     - Natural Language Processing: 
       # - paper/index-nlp.md
       - BERT: paper/nlp/paper-reading-bert.md
@@ -194,5 +196,7 @@ nav:
     - Machine Learning:
       - ICRL | In-Context Reinforcement Learning: knowledge/in-context-rl.md
       - Graphomer: knowledge/graphomer.md
+      - Deepseek Coder: knowledge/deepseek_coder.md
+      - VAE: knowledge/VAE.md
     # - Machine Learning | Deep Learning: 
       # - ICRL | In-Context Reinforcement Learning: 

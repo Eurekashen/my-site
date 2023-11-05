@@ -195,7 +195,7 @@ nav:
     - Welcome Page: knowledge/index.md
     - Machine Learning:
       - ICRL | In-Context Reinforcement Learning: knowledge/in-context-rl.md
-      - Graphomer: knowledge/graphomer.md
+      - Graphormer: knowledge/graphormer.md
       - Deepseek Coder: knowledge/deepseek_coder.md
       - VAE: knowledge/VAE.md
     - Mathematic Basic:

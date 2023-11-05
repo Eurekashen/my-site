@@ -189,6 +189,7 @@ nav:
   - Tools: 
     - Welcome Page: tools/index.md
     - conda: tools/conda/tools-conda.md
+    - Pytorch: tools/Pytorch.md
   - Discussion:
     - Welcome Page: discussion/index-discussion.md
   - Knowledge Base: 

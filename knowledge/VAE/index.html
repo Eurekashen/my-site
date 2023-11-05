@@ -16,6 +16,8 @@
         <link rel="prev" href="../deepseek_coder/">
       
       
+        <link rel="next" href="../KL/">
+      
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.4">
@@ -135,6 +137,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -1681,6 +1688,8 @@
       
         
       
+        
+      
     
     
     
@@ -1735,6 +1744,26 @@
   
   <span class="md-ellipsis">
     conda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/Pytorch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pytorch
   </span>
   
 
@@ -1833,6 +1862,8 @@
       
         
           
+        
+      
         
       
         
@@ -1954,11 +1985,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../graphomer/" class="md-nav__link">
+      <a href="../graphormer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Graphomer
+    Graphormer
   </span>
   
 
@@ -2001,6 +2032,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    VAE
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2011,6 +2053,148 @@
 
       </a>
       
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Content">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    模型架构简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    数学推导
+  </a>
+  
+    <nav class="md-nav" aria-label="数学推导">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    背景知识和假设
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    分布标准化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kl" class="md-nav__link">
+    KL散度
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    重参数化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cvae" class="md-nav__link">
+    简单的CVAE实现
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Mathematic Basic
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Mathematic Basic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KL divergence
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2051,6 +2235,69 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    模型架构简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    数学推导
+  </a>
+  
+    <nav class="md-nav" aria-label="数学推导">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    背景知识和假设
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    分布标准化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kl" class="md-nav__link">
+    KL散度
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    重参数化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cvae" class="md-nav__link">
+    简单的CVAE实现
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2069,14 +2316,205 @@
 
   <h1>VAE</h1>
 
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>VAE（Variational Autoencoder）是一种生成模型，用于学习概率分布中的数据表示。它是一种自编码器（Autoencoder）的变种，具有编码器（Encoder）和解码器（Decoder）两个主要组件。VAE的主要目标是学习数据的潜在空间（Latent Space）表示，并能够生成新的数据样本，同时还可以进行数据重构和插值。</p>
+</div>
+<h2 id="_1">模型架构简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>编码器（Encoder）</strong>：</li>
+<li>编码器将输入数据（通常是高维数据，如图像或文本）映射到潜在空间中的低维表示。</li>
+<li>它产生两个向量，一个表示潜在空间中的均值向量（<span class="arithmatex">\(μ\)</span>），另一个表示方差向量（<span class="arithmatex">\(σ^2\)</span>）。</li>
+<li>这些向量用于定义潜在空间中的高斯分布。</li>
+<li><strong>潜在空间采样</strong>：</li>
+<li>从编码器输出的均值和方差向量中采样潜在空间中的点。</li>
+<li>通常使用重参数化技巧，使梯度能够通过采样传回编码器，以便训练期间可以优化模型。</li>
+<li><strong>解码器（Decoder）</strong>：</li>
+<li>解码器将潜在空间中的样本映射回原始数据空间，尝试生成与输入数据相似的输出。</li>
+<li>这一步可以被视为从潜在空间中采样点并将其转化为数据样本。</li>
+<li><strong>重构误差</strong>：</li>
+<li>VAE的训练目标是最小化重构误差，即输入数据和解码器输出之间的差异。</li>
+<li>还包括一个正则化项，它通过最小化潜在空间的均值和方差与标准正态分布之间的差异来使潜在表示更加连续和规则。</li>
+<li><strong>生成新样本</strong>：</li>
+<li>一旦训练完成，VAE可以从潜在空间中随机采样以生成新的数据样本。</li>
+</ol>
+<p><mark>VAE的一个关键优势是它能够生成具有一定连续性的潜在空间表示，这使得它在生成新数据样本时可以进行插值。此外，VAE也常用于图像生成、图像去噪、数据降维和半监督学习等应用中。</mark></p>
+<h2 id="_2">数学推导<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">背景知识和假设<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>给定真实的数据样本<span class="arithmatex">\({X1,…,Xn}\)</span>，其整体用<span class="arithmatex">\(X\)</span>来描述，我们想根据<span class="arithmatex">\({X1,…,Xn}\)</span>得到X的分布<span class="arithmatex">\(p(X)\)</span>，如果能得到的话，那我直接根据<span class="arithmatex">\(p(X)\)</span>来采样，就可以得到所有可能的<span class="arithmatex">\(X\)</span>。但是目前没有这样的理想的生成模型能够直接推出<span class="arithmatex">\(X\)</span>的分布。</p>
+<p>使用下面的推导公式：</p>
+<p>$$
+p(X)=\sum_{Z}p(X|Z)p(Z)
+$$
+我们假设后验分布<span class="arithmatex">\(p(Z|X_k)\)</span>是正态分布，其中<span class="arithmatex">\(X_k\)</span>代表真实的样本，并且每个<span class="arithmatex">\(X_k\)</span>的分布是独立的，有多少个<span class="arithmatex">\(X\)</span>样本就有多少个这样的分布。</p>
+<p>我们知道正态分布有两个参数：均值和方差——<span class="arithmatex">\(\mu,\sigma^2\)</span>.我们的encoder就是要根据给定的<span class="arithmatex">\(X_k\)</span>训练拟合出对应的<span class="arithmatex">\(\mu_k,\sigma_k^2\)</span>。而decoder是一个生成器<span class="arithmatex">\(g(Z_k)\)</span>,将<span class="arithmatex">\(X_k\)</span>对应的正态分布中采样出的<span class="arithmatex">\(Z_k\)</span>还原回<span class="arithmatex">\(\hat{X_k}\)</span>，通过最小化<span class="arithmatex">\(distance(X_k,\hat{X_k})\)</span>就能够同时训练encoder和decoder了。</p>
+<h3 id="_4">分布标准化<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>​最小化<span class="arithmatex">\(distance(X_k,\hat{X_k})\)</span>，但是这个重构过程受到噪声的影响，因为<span class="arithmatex">\(Z_k\)</span>是通过重新采样过的，不是直接由encoder算出来的。显然噪声会增加重构的难度，不过好在这个噪声强度（也就是方差）通过一个神经网络（encoder）算出来的，所以最终模型为了重构得更好，肯定会想尽办法让方差为0。而方差为0的话，也就没有随机性了，所以不管怎么采样其实都只是得到确定的结果（也就是均值），只拟合一个当然比拟合多个要容易，而均值是通过另外一个神经网络算出来的。</p>
+</div>
+<p><mark>最后会导致模型会慢慢退化成普通的AutoEncoder，噪声不再起作用。</mark></p>
+<p>所以VAE让所有<span class="arithmatex">\(p(Z|X)\)</span>都向标准正态分布对齐，这样就可以防止噪声为0，保证模型还是一个概率生成模型。</p>
+<h3 id="kl">KL散度<a class="headerlink" href="#kl" title="Permanent link">&para;</a></h3>
+<p>KL散度在其他文章里面已经介绍过了，这里就不再赘述。</p>
+<p>前面说到我们想要让拟合出的分布向标准正态分布靠拢，这时就需要用到之前说的衡量两个概率分布之间的差距的指标——KL散度：</p>
+<div class="arithmatex">\[
+KL(P||Q) = Σ [P(x) * log(P(x) / Q(x))]
+\]</div>
+<p>将KL散度作为一个额外的loss，然后通过梯度下降优化就可以让拟合出的分布靠近标准正态分布了。</p>
+<h3 id="_5">重参数化<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>要从<span class="arithmatex">\(p(Z|Xk)\)</span>中采样一个<span class="arithmatex">\(Z_k\)</span>出来，尽管我们知道了<span class="arithmatex">\(p(Z|Xk)\)</span>是正态分布，但是均值方差都是靠encoder算出来的，我们要靠这个过程反过来优化均值方差的模型，但是“采样”这个操作是不可导的，而采样的结果是可导的。我们利用</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\frac{1}{\sqrt{2\pi \sigma^2}}exp(-\frac{(z-\mu)^2}{2\sigma^2})dz \\
+=\frac{1}{\sqrt{2\pi}}exp[-\frac{1}{2}(\frac{z-\mu}{\sigma})^2]d(\frac{z-\mu}{\sigma})
+\end{aligned}
+\]</div>
+<p>这说明<span class="arithmatex">\(\frac{z−μ}{σ}=ε\)</span>是服从均值为0、方差为1的标准正态分布的。所以从<span class="arithmatex">\(N(μ,σ2)\)</span>中采样一个<span class="arithmatex">\(Z\)</span>，相当于从<span class="arithmatex">\(N(0,1)\)</span>中采样一个<span class="arithmatex">\(ε\)</span>，然后让<span class="arithmatex">\(Z=μ+ε×σ\)</span>。</p>
+<h2 id="cvae">简单的CVAE实现<a class="headerlink" href="#cvae" title="Permanent link">&para;</a></h2>
+<p>普通的VAE并没有condition的指导，也就是说训练完成之后没有办法控制最后的生成结果。比如说在MNIST数据集上训练完成之后，我如果想要生成一张“2”的图片，那么原始的VAE是做不到的。</p>
+<details>
+<summary>CVAE的Pytorch实现</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+<span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">transforms</span>
+<span class="kn">from</span> <span class="nn">torch.utils.tensorboard</span> <span class="kn">import</span> <span class="n">SummaryWriter</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 
+<span class="c1"># 定义CVAE模型</span>
+<span class="k">class</span> <span class="nc">CVAE</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latent_dim</span><span class="p">,</span> <span class="n">condition_dim</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">CVAE</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">latent_dim</span> <span class="o">=</span> <span class="n">latent_dim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">condition_dim</span> <span class="o">=</span> <span class="n">condition_dim</span>
+
+        <span class="c1"># 编码器</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">784</span> <span class="o">+</span> <span class="n">condition_dim</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc_mu</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">latent_dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc_logvar</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">latent_dim</span><span class="p">)</span>
+
+        <span class="c1"># 解码器</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">latent_dim</span> <span class="o">+</span> <span class="n">condition_dim</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">784</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Sigmoid</span><span class="p">()</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">reparameterize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">logvar</span><span class="p">):</span>
+        <span class="n">std</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">logvar</span><span class="p">)</span>
+        <span class="n">eps</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn_like</span><span class="p">(</span><span class="n">std</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mu</span> <span class="o">+</span> <span class="n">eps</span> <span class="o">*</span> <span class="n">std</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">condition</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">condition</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">mu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc_mu</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+        <span class="n">logvar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc_logvar</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reparameterize</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">logvar</span><span class="p">)</span>
+        <span class="n">z_condition</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">z</span><span class="p">,</span> <span class="n">condition</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">x_recon</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="p">(</span><span class="n">z_condition</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x_recon</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">logvar</span>
+
+<span class="c1"># 定义训练函数</span>
+<span class="k">def</span> <span class="nf">train_cvae</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data_loader</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+    <span class="n">train_loss</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">condition</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">data_loader</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Training&quot;</span><span class="p">):</span>
+        <span class="n">data</span><span class="p">,</span> <span class="n">condition</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">condition</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">recon_batch</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">logvar</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">784</span><span class="p">),</span> <span class="n">condition</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_function</span><span class="p">(</span><span class="n">recon_batch</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">784</span><span class="p">),</span> <span class="n">mu</span><span class="p">,</span> <span class="n">logvar</span><span class="p">)</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">train_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">train_loss</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+
+<span class="c1"># 定义测试函数</span>
+<span class="k">def</span> <span class="nf">test_cvae</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data_loader</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+    <span class="n">test_loss</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">condition</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">data_loader</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Testing&quot;</span><span class="p">):</span>
+            <span class="n">data</span><span class="p">,</span> <span class="n">condition</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">condition</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">recon_batch</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">logvar</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">784</span><span class="p">),</span> <span class="n">condition</span><span class="p">)</span>
+            <span class="n">test_loss</span> <span class="o">+=</span> <span class="n">loss_function</span><span class="p">(</span><span class="n">recon_batch</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">784</span><span class="p">),</span> <span class="n">mu</span><span class="p">,</span> <span class="n">logvar</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">test_loss</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+
+<span class="c1"># 定义损失函数</span>
+<span class="k">def</span> <span class="nf">loss_function</span><span class="p">(</span><span class="n">recon_x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">logvar</span><span class="p">):</span>
+    <span class="n">BCE</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BCELoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)(</span><span class="n">recon_x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">KLD</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">logvar</span> <span class="o">-</span> <span class="n">mu</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">logvar</span><span class="o">.</span><span class="n">exp</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">BCE</span> <span class="o">+</span> <span class="n">KLD</span>
+
+<span class="c1"># 主函数</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># 设置参数</span>
+    <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">64</span>
+    <span class="n">latent_dim</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">condition_dim</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">epochs</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">lr</span> <span class="o">=</span> <span class="mf">0.001</span>
+
+    <span class="c1"># 准备数据</span>
+    <span class="n">transform</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">()])</span>
+    <span class="n">train_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="s1">&#39;./data&#39;</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">),</span>
+                            <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">test_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="s1">&#39;./data&#39;</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">),</span>
+                            <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># 初始化模型和优化器</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">CVAE</span><span class="p">(</span><span class="n">latent_dim</span><span class="p">,</span> <span class="n">condition_dim</span><span class="p">)</span>
+    <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
+
+    <span class="c1"># 初始化TensorBoard</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">SummaryWriter</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">train_loss</span> <span class="o">=</span> <span class="n">train_cvae</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+        <span class="n">test_loss</span> <span class="o">=</span> <span class="n">test_cvae</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+
+        <span class="n">writer</span><span class="o">.</span><span class="n">add_scalar</span><span class="p">(</span><span class="s2">&quot;Train Loss&quot;</span><span class="p">,</span> <span class="n">train_loss</span><span class="p">,</span> <span class="n">epoch</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">add_scalar</span><span class="p">(</span><span class="s2">&quot;Test Loss&quot;</span><span class="p">,</span> <span class="n">test_loss</span><span class="p">,</span> <span class="n">epoch</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="si">}</span><span class="s1">, Train Loss: </span><span class="si">{</span><span class="n">train_loss</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">, Test Loss: </span><span class="si">{</span><span class="n">test_loss</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+</details>
+<div class="admonition summary">
+<p class="admonition-title">Summary</p>
+<p>这里只是我学习了解VAE的一点笔记，更多细节建议去看苏神的原文。</p>
+</div>
+<div class="admonition reference">
+<p class="admonition-title">Reference</p>
+<p>苏剑林. (Mar. 18, 2018). 《变分自编码器（一）：原来是这么一回事 》[Blog post]. Retrieved from https://kexue.fm/archives/5253</p>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">2023.11.04 14:49:34 CST</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">2023.11.05 16:01:47 CST</span>
       
         <br>
         创建日期:

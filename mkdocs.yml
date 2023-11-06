@@ -199,6 +199,7 @@ nav:
       - Graphormer: knowledge/graphormer.md
       - Deepseek Coder: knowledge/deepseek_coder.md
       - VAE: knowledge/VAE.md
+      - KNN: knowledge/knn.md
     - Mathematic Basic:
       - KL divergence: knowledge/KL.md
     # - Machine Learning | Deep Learning: 

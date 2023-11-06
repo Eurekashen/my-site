@@ -74,136 +74,119 @@ $$
 
 普通的VAE并没有condition的指导，也就是说训练完成之后没有办法控制最后的生成结果。比如说在MNIST数据集上训练完成之后，我如果想要生成一张“2”的图片，那么原始的VAE是做不到的。
 
-??? CVAE的Pytorch实现
+??? "VAE的Pytorch实现"
 
     ```python
     import torch
-    import torch.nn as nn
-    import torch.optim as optim
-    from torch.utils.data import DataLoader
+    from torch import nn
     from torchvision import datasets, transforms
+    from torch.utils.data import DataLoader
     from torch.utils.tensorboard import SummaryWriter
     from tqdm import tqdm
-
-    # 定义CVAE模型
-    class CVAE(nn.Module):
-        def __init__(self, latent_dim, condition_dim):
-            super(CVAE, self).__init__()
-            self.latent_dim = latent_dim
-            self.condition_dim = condition_dim
-
-            # 编码器
-            self.encoder = nn.Sequential(
-                nn.Linear(784 + condition_dim, 400),
-                nn.ReLU(),
-                nn.Linear(400, 200),
-                nn.ReLU()
-            )
-            self.fc_mu = nn.Linear(200, latent_dim)
-            self.fc_logvar = nn.Linear(200, latent_dim)
-
-            # 解码器
-            self.decoder = nn.Sequential(
-                nn.Linear(latent_dim + condition_dim, 200),
-                nn.ReLU(),
-                nn.Linear(200, 400),
-                nn.ReLU(),
-                nn.Linear(400, 784),
-                nn.Sigmoid()
-            )
-
+    import torchvision
+    
+    
+    # 定义VAE的结构
+    class VAE(nn.Module):
+        def __init__(self):
+            super(VAE, self).__init__()
+    
+            self.fc1 = nn.Linear(784, 400)
+            self.fc21 = nn.Linear(400, 20)
+            self.fc22 = nn.Linear(400, 20)
+            self.fc3 = nn.Linear(20, 400)
+            self.fc4 = nn.Linear(400, 784)
+    
+        def encode(self, x):
+            h1 = torch.relu(self.fc1(x))
+            return self.fc21(h1), self.fc22(h1)
+    
         def reparameterize(self, mu, logvar):
             std = torch.exp(0.5 * logvar)
             eps = torch.randn_like(std)
             return mu + eps * std
-
-        def forward(self, x, condition):
-            x = torch.cat([x, condition], dim=1)
-            h = self.encoder(x)
-            mu = self.fc_mu(h)
-            logvar = self.fc_logvar(h)
+    
+        def decode(self, z):
+            h3 = torch.relu(self.fc3(z))
+            return torch.sigmoid(self.fc4(h3))
+    
+        def forward(self, x):
+            mu, logvar = self.encode(x.view(-1, 784))
             z = self.reparameterize(mu, logvar)
-            z_condition = torch.cat([z, condition], dim=1)
-            x_recon = self.decoder(z_condition)
-            return x_recon, mu, logvar
-
-    # 定义训练函数
-    def train_cvae(model, data_loader, optimizer, device):
+            return self.decode(z), mu, logvar
+    
+    
+    # 加载MNIST数据集
+    transform = transforms.Compose([transforms.ToTensor()])
+    mnist = datasets.MNIST("./data", download=True, transform=transform)
+    dataloader = DataLoader(mnist, batch_size=128, shuffle=True)
+    
+    # 初始化VAE和优化器
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    model = VAE().to(device)
+    optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
+    
+    # 初始化tensorboard
+    writer = SummaryWriter()
+    
+    
+    # 训练VAE
+    def train(epoch):
         model.train()
         train_loss = 0
-
-        for data, condition in tqdm(data_loader, leave=False, desc="Training"):
-            data, condition = data.to(device), condition.to(device)
+        for batch_idx, (data, _) in enumerate(tqdm(dataloader)):
+            data = data.to(device)
             optimizer.zero_grad()
-            recon_batch, mu, logvar = model(data.view(-1, 784), condition)
-            loss = loss_function(recon_batch, data.view(-1, 784), mu, logvar)
+            recon_batch, mu, logvar = model(data)
+            loss = loss_function(recon_batch, data, mu, logvar)
             loss.backward()
+            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1)  # 梯度裁剪
             train_loss += loss.item()
             optimizer.step()
-
-        return train_loss / len(data_loader.dataset)
-
-    # 定义测试函数
-    def test_cvae(model, data_loader, device):
-        model.eval()
-        test_loss = 0
-
-        with torch.no_grad():
-            for data, condition in tqdm(data_loader, leave=False, desc="Testing"):
-                data, condition = data.to(device), condition.to(device)
-                recon_batch, mu, logvar = model(data.view(-1, 784), condition)
-                test_loss += loss_function(recon_batch, data.view(-1, 784), mu, logvar).item()
-
-        return test_loss / len(data_loader.dataset)
-
+    
+            # 记录损失到tensorboard
+            writer.add_scalar(
+                "Loss/train", loss.item(), epoch * len(dataloader) + batch_idx
+            )
+    
+        print(
+            "====> Epoch: {} Average loss: {:.4f}".format(
+                epoch, train_loss / len(dataloader.dataset)
+            )
+        )
+    
+    
     # 定义损失函数
     def loss_function(recon_x, x, mu, logvar):
-        BCE = nn.BCELoss(reduction='sum')(recon_x, x)
+        BCE = nn.functional.binary_cross_entropy(recon_x, x.view(-1, 784), reduction="sum")
         KLD = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
         return BCE + KLD
-
-    # 主函数
-    def main():
-        # 设置参数
-        batch_size = 64
-        latent_dim = 20
-        condition_dim = 10
-        epochs = 10
-        lr = 0.001
-
-        # 准备数据
-        transform = transforms.Compose([transforms.ToTensor()])
-        train_loader = DataLoader(datasets.MNIST('./data', train=True, download=True, transform=transform),
-                                batch_size=batch_size, shuffle=True)
-        test_loader = DataLoader(datasets.MNIST('./data', train=False, transform=transform),
-                                batch_size=batch_size, shuffle=True)
-
-        # 初始化模型和优化器
-        model = CVAE(latent_dim, condition_dim)
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        model.to(device)
-        optimizer = optim.Adam(model.parameters(), lr=lr)
-
-        # 初始化TensorBoard
-        writer = SummaryWriter()
-
-        for epoch in range(1, epochs + 1):
-            train_loss = train_cvae(model, train_loader, optimizer, device)
-            test_loss = test_cvae(model, test_loader, device)
-            
-            writer.add_scalar("Train Loss", train_loss, epoch)
-            writer.add_scalar("Test Loss", test_loss, epoch)
-
-            print(f'Epoch {epoch}, Train Loss: {train_loss:.4f}, Test Loss: {test_loss:.4f}')
-
-        writer.close()
-
-    if __name__ == '__main__':
-        main()
+    
+    
+    # 训练模型
+    # for epoch in range(1, 51):
+    #     train(epoch)
+    
+    # 保存模型
+    # torch.save(model.state_dict(), "model.pth")
+    
+    # 加载模型
+    # model = VAE().to(device)
+    model.load_state_dict(torch.load("model.pth"))
+    
+    # 可视化生成结果
+    with torch.no_grad():
+        z = torch.randn(64, 20).to(device)
+        sample = model.decode(z).view(64, 1, 28, 28)
+        # writer.add_images("Images/sample", sample, 0)
+        torchvision.utils.save_image(sample, f"image.png")
+    
+    writer.close()
+    
     ```
 
 !!! summary
     这里只是我学习了解VAE的一点笔记，更多细节建议去看苏神的原文。
 
-!!! quote 
+!!! Reference 
 	苏剑林. (Mar. 18, 2018). 《变分自编码器（一）：原来是这么一回事 》[Blog post]. Retrieved from https://kexue.fm/archives/5253

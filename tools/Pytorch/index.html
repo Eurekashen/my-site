@@ -138,6 +138,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#pytorch" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1763,6 +1768,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Pytorch
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1772,6 +1788,52 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Content">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pytorch" class="md-nav__link">
+    Pytorch上使用多卡训练
+  </a>
+  
+    <nav class="md-nav" aria-label="Pytorch上使用多卡训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#torchnndataparallel" class="md-nav__link">
+    torch.nn.DataParallel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#torchnnparalleldistributeddataparallel" class="md-nav__link">
+    torch.nn.parallel.DistributedDataParallel
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1930,6 +1992,8 @@
       
         
       
+        
+      
     
     
     
@@ -2031,6 +2095,26 @@
   
   <span class="md-ellipsis">
     VAE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../knowledge/knn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KNN
   </span>
   
 
@@ -2143,6 +2227,41 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Content
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pytorch" class="md-nav__link">
+    Pytorch上使用多卡训练
+  </a>
+  
+    <nav class="md-nav" aria-label="Pytorch上使用多卡训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#torchnndataparallel" class="md-nav__link">
+    torch.nn.DataParallel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#torchnnparalleldistributeddataparallel" class="md-nav__link">
+    torch.nn.parallel.DistributedDataParallel
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2161,14 +2280,50 @@
 
   <h1>Pytorch</h1>
 
-
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>这里记录一些我使用Pytorch遇到的一些问题，和一些功能的使用方法，记下来方便之后的查找。</p>
+</div>
+<h2 id="pytorch">Pytorch上使用多卡训练<a class="headerlink" href="#pytorch" title="Permanent link">&para;</a></h2>
+<h3 id="torchnndataparallel"><code>torch.nn.DataParallel</code><a class="headerlink" href="#torchnndataparallel" title="Permanent link">&para;</a></h3>
+<p>这时最简单的使用单机多卡训练的方式，对代码不会有太多的修改，采用单个进程多个线程的模型。但是这样做的性能通常不是最好的，因为在每一次模型forward的时候都需要重复模型。而且单进程多线程的并行度也会收到GIL争用的影响。</p>
+<p>这种方法使用起来非常的简单，只需要添加一点点代码：</p>
+<ol>
+<li>获取现在device，和原来一样</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda:0&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+</code></pre></div>
+<ol>
+<li>把模型放到GPU上：</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+  <span class="n">model</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">DataParallel</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</code></pre></div>
+<p>像上面这样使用会默认使用到全部GPU，如果想要指定使用GPU的数量和id，则需要：</p>
+<div class="highlight"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">YourModel</span><span class="p">()</span>
+<span class="n">device_ids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># 0号和1号GPU</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">DataParallel</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">device_ids</span><span class="o">=</span><span class="n">device_ids</span><span class="p">)</span>
+</code></pre></div>
+<ol>
+<li>像其他的损失函数、优化器以及训练输入的tensor也一样需要放到device上面。</li>
+</ol>
+<p><mark>需要注意的是，如果在一张GPU都跑不满的状况下强行使用多张GPU由于通讯开销等因素反而会更慢。</mark></p>
+<h3 id="torchnnparalleldistributeddataparallel"><code>torch.nn.parallel.DistributedDataParallel</code><a class="headerlink" href="#torchnnparalleldistributeddataparallel" title="Permanent link">&para;</a></h3>
+<p>在PyTorch中，使用<code>torch.nn.parallel.DistributedDataParallel</code>（DDP）来进行单机多GPU训练时，需要进行一些代码的修改。DDP用于分布式训练，但也可以用于单机多GPU的训练，以提高训练速度。</p>
+<div class="admonition reference">
+<p class="admonition-title">Reference</p>
+</div>
+<p>​   https://zhuanlan.zhihu.com/p/76638962</p>
+<p>https://zhuanlan.zhihu.com/p/86441879</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">2023.11.05 16:01:47 CST</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">2023.11.06 19:10:33 CST</span>
       
         <br>
         创建日期:

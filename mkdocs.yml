@@ -169,7 +169,7 @@ nav:
       - NeRF: paper/3dv/paper-reading-nerf.md
     - AI+X: 
       - DE NOVO PROTEIN DESIGN USING GEOMETRIC VECTOR FIELD NETWORKS: paper/ai_for_sci/paper-reading-vfn.md
-      - De novo design of protein structure and function with RFdiffusion: paper/ai_for_sci/paper-reading-rfdiffusion.md\
+      - De novo design of protein structure and function with RFdiffusion: paper/ai_for_sci/paper-reading-rfdiffusion.md
       - AlphaFold Latest Report: paper/ai_for_sci/alphafold-report.md
       - ProGen2: paper/ai_for_sci/progen2.md
     - Natural Language Processing: 

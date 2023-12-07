@@ -84,52 +84,51 @@ $$
     from torch.utils.tensorboard import SummaryWriter
     from tqdm import tqdm
     import torchvision
-    
-    
+
     # 定义VAE的结构
     class VAE(nn.Module):
         def __init__(self):
             super(VAE, self).__init__()
-    
+
             self.fc1 = nn.Linear(784, 400)
             self.fc21 = nn.Linear(400, 20)
             self.fc22 = nn.Linear(400, 20)
             self.fc3 = nn.Linear(20, 400)
             self.fc4 = nn.Linear(400, 784)
-    
+
         def encode(self, x):
             h1 = torch.relu(self.fc1(x))
             return self.fc21(h1), self.fc22(h1)
-    
+
         def reparameterize(self, mu, logvar):
             std = torch.exp(0.5 * logvar)
             eps = torch.randn_like(std)
             return mu + eps * std
-    
+
         def decode(self, z):
             h3 = torch.relu(self.fc3(z))
             return torch.sigmoid(self.fc4(h3))
-    
+
         def forward(self, x):
             mu, logvar = self.encode(x.view(-1, 784))
             z = self.reparameterize(mu, logvar)
             return self.decode(z), mu, logvar
-    
-    
+
     # 加载MNIST数据集
     transform = transforms.Compose([transforms.ToTensor()])
     mnist = datasets.MNIST("./data", download=True, transform=transform)
     dataloader = DataLoader(mnist, batch_size=128, shuffle=True)
-    
+
     # 初始化VAE和优化器
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     model = VAE().to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
-    
+
     # 初始化tensorboard
     writer = SummaryWriter()
-    
-    
+
+
+    ​    
     # 训练VAE
     def train(epoch):
         model.train()
@@ -154,39 +153,37 @@ $$
                 epoch, train_loss / len(dataloader.dataset)
             )
         )
-    
-    
+
+
     # 定义损失函数
     def loss_function(recon_x, x, mu, logvar):
         BCE = nn.functional.binary_cross_entropy(recon_x, x.view(-1, 784), reduction="sum")
         KLD = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
         return BCE + KLD
-    
-    
+
     # 训练模型
     # for epoch in range(1, 51):
     #     train(epoch)
-    
+
     # 保存模型
     # torch.save(model.state_dict(), "model.pth")
-    
+
     # 加载模型
     # model = VAE().to(device)
     model.load_state_dict(torch.load("model.pth"))
-    
+
     # 可视化生成结果
     with torch.no_grad():
         z = torch.randn(64, 20).to(device)
         sample = model.decode(z).view(64, 1, 28, 28)
         # writer.add_images("Images/sample", sample, 0)
         torchvision.utils.save_image(sample, f"image.png")
-    
+
     writer.close()
-    
     ```
 
 !!! summary
     这里只是我学习了解VAE的一点笔记，更多细节建议去看苏神的原文。
 
-!!! Reference 
+!!! quote
 	苏剑林. (Mar. 18, 2018). 《变分自编码器（一）：原来是这么一回事 》[Blog post]. Retrieved from https://kexue.fm/archives/5253
